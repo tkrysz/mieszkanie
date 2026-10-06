@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mieszkanie – rzut 3D</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#23262b}
+body{background:radial-gradient(ellipse at 50% 45%,#fbfaf7 0,#d9d4ca 100%);transition:background .5s}
+body.night{background:radial-gradient(ellipse at 50% 45%,#2a3248 0,#0e1220 100%);color:#e8ebf2}
+#app{position:fixed;inset:0}#app canvas{display:block;width:100%;height:100%}
+.bar{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;padding:10px 14px;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border-radius:16px;box-shadow:0 6px 28px rgba(0,0,0,.15);max-width:96vw}
+body.night .bar,body.night .title{background:rgba(25,30,46,.8);color:#e8ebf2}
+.grp{display:flex;gap:4px;align-items:center}.grp span{font-size:11px;text-transform:uppercase;letter-spacing:.06em;opacity:.55;margin-right:4px}
+button{font:inherit;font-size:13px;border:0;background:rgba(0,0,0,.06);color:inherit;padding:7px 11px;border-radius:9px;cursor:pointer}
+button:hover{background:rgba(0,0,0,.12)}button.on{background:#2f5d8a;color:#fff}
+.title{position:fixed;left:18px;top:16px;padding:10px 16px;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border-radius:14px;box-shadow:0 6px 28px rgba(0,0,0,.12)}
+.title b{font-size:17px}.title div{font-size:12px;opacity:.65;margin-top:2px}
+.hint{position:fixed;right:18px;top:18px;font-size:12px;opacity:.55}
+</style></head><body>
+<div id="app"></div>
+<div class="title"><b>Mieszkanie – rzut 3D</b><div>56,2 m² · 2 pokoje + loggia 8,4 m²</div></div>
+<div class="hint">LPM – obrót · PPM – przesuwanie · kółko – zoom</div>
+<div class="bar">
+ <div class="grp"><span>Widok</span><button data-view="iso">Izometria</button><button data-view="top">Z góry</button><button data-view="south">Z południa</button></div>
+ <div class="grp"><span>Wnętrze</span><button data-view="wejscie">Wejście</button><button data-view="salon">Salon</button><button data-view="kuchnia">Kuchnia</button></div>
+ <div class="grp"><span>Ściany</span><button data-walls="low">Niskie</button><button data-walls="full">Pełne</button></div>
+ <div class="grp"><button id="lab" class="on">Nazwy pokoi</button><button id="lamps" class="on">Lampy</button><button id="night">Wieczór</button><button id="shot">Zapisz PNG</button></div>
+</div>
+<script>/*THREE*/</script>
+<script>/*ORBIT*/</script>
+<script>/*APP*/</script>
+</body></html>
