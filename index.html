@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script type="text/javascript" src="https://js-cdn.dynatracelabs.com/jstag/14868fa4215/bf04719quf/caadc1aca152bc15_complete.js" crossorigin="anonymous"></script>
 <title>Mieszkanie – rzut 3D</title>
 <style>
 *{box-sizing:border-box}html,body{margin:0;height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;color:#23262b}
@@ -14,16 +15,29 @@ button:hover{background:rgba(0,0,0,.12)}button.on{background:#2f5d8a;color:#fff}
 .title{position:fixed;left:18px;top:16px;padding:10px 16px;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border-radius:14px;box-shadow:0 6px 28px rgba(0,0,0,.12)}
 .title b{font-size:17px}.title div{font-size:12px;opacity:.65;margin-top:2px}
 .hint{position:fixed;right:18px;top:18px;font-size:12px;opacity:.55}
+#cfg{position:fixed;right:14px;bottom:14px;width:44px;height:44px;padding:0;font-size:22px;line-height:44px;text-align:center;border-radius:50%;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);box-shadow:0 4px 16px rgba(0,0,0,.2);z-index:5}
+body.night #cfg{background:rgba(25,30,46,.85)}
+body:not(.bar-open) .bar{display:none}
+body.bar-open #cfg{background:#2f5d8a;color:#fff}
+.bar{bottom:68px;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;overflow-y:hidden;scrollbar-width:none}
+.bar::-webkit-scrollbar{display:none}
+.bar .grp,.bar button{flex:none;white-space:nowrap}
+@media (max-width:799px),(max-height:499px){.hint{display:none}.title{padding:6px 10px;left:10px;top:10px}.title b{font-size:14px}.title div{display:none}}
 </style></head><body>
 <div id="app"></div>
-<div class="title"><b>Mieszkanie – rzut 3D</b><div>56,2 m² · 2 pokoje + loggia 8,4 m²</div></div>
+<div class="title"><b>Mieszkanie – rzut 3D</b><div>50 m² · 2 pokoje + loggia 8,4 m²</div></div>
 <div class="hint">LPM – obrót · PPM – przesuwanie · kółko – zoom</div>
+<button id="cfg" title="Ustawienia" aria-label="Ustawienia">⚙</button>
 <div class="bar">
  <div class="grp"><span>Widok</span><button data-view="iso">Izometria</button><button data-view="top">Z góry</button><button data-view="south">Z południa</button></div>
  <div class="grp"><span>Wnętrze</span><button data-view="wejscie">Wejście</button><button data-view="salon">Salon</button><button data-view="kuchnia">Kuchnia</button></div>
  <div class="grp"><span>Ściany</span><button data-walls="low">Niskie</button><button data-walls="full">Pełne</button></div>
  <div class="grp"><button id="lab" class="on">Nazwy pokoi</button><button id="lamps" class="on">Lampy</button><button id="night">Wieczór</button><button id="shot">Zapisz PNG</button></div>
 </div>
+<script>(function(){var mq=matchMedia("(min-width:800px) and (min-height:500px)"),b=document.body;
+function sync(){b.classList.toggle("bar-open",mq.matches)}sync();
+(mq.addEventListener?mq.addEventListener("change",sync):mq.addListener(sync));
+document.getElementById("cfg").onclick=function(){b.classList.toggle("bar-open")}})()</script>
 <script>/**
  * @license
  * Copyright 2010-2022 Three.js Authors
